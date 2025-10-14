@@ -18,7 +18,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
+            padding: 1rem;
             color: #5a4a42;
             overflow-x: hidden;
         }
@@ -28,7 +28,7 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.85);
             border-radius: 20px;
-            padding: 3rem;
+            padding: 2rem;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(10px);
             position: relative;
@@ -65,19 +65,32 @@
         
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #e67e22;
+            margin: 0 auto 1.5rem;
+            display: block;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
         h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             background: linear-gradient(45deg, #d35400 0%, #e67e22 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 1rem;
             text-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: glow 2s ease-in-out infinite alternate;
+            line-height: 1.2;
+            word-wrap: break-word;
         }
         
         @keyframes glow {
@@ -90,9 +103,9 @@
         }
         
         h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
             color: #8b4513;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
         }
@@ -100,7 +113,7 @@
         h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 0;
             width: 100%;
             height: 3px;
@@ -109,13 +122,13 @@
         }
         
         .content {
-            line-height: 1.8;
-            font-size: 1.2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
         
         p {
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            padding: 1.2rem;
             background: rgba(255, 253, 250, 0.9);
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
@@ -124,8 +137,8 @@
         }
         
         p:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.07);
         }
         
         .highlight {
@@ -158,10 +171,11 @@
         }
         
         .footer {
-            margin-top: 3rem;
+            margin-top: 2rem;
             text-align: center;
             color: #8b7d6b;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
         
         .floating-elements {
@@ -192,15 +206,71 @@
             }
             100% {
                 transform: translate(0, 0) rotate(360deg);
+            }
         }
         
+        /* Mobile-specific adjustments */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 3rem;
+            body {
+                padding: 0.5rem;
             }
             
             .container {
-                padding: 2rem;
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+            
+            header {
+                margin-bottom: 1.5rem;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 1rem;
+            }
+            
+            h1 {
+                font-size: clamp(2rem, 10vw, 3rem);
+                letter-spacing: 0.5px;
+            }
+            
+            h2 {
+                font-size: clamp(1.5rem, 7vw, 2rem);
+            }
+            
+            .content {
+                font-size: 1rem;
+            }
+            
+            p {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .footer {
+                margin-top: 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            h1 {
+                font-size: clamp(1.8rem, 12vw, 2.5rem);
+            }
+            
+            p {
+                padding: 0.8rem;
             }
         }
     </style>
@@ -211,26 +281,29 @@
     
     <div class="container">
         <header>
-            <h1>hi, i am novaflare</h1>
+            <!-- ADD YOUR PROFILE IMAGE URL HERE -->
+            <img src="https://static.wikia.nocookie.net/bighero6/images/c/c7/Mini_Baymax.png/revision/latest/scale-to-width/360?cb=20211117162852" alt="Profile Picture" class="profile-image">
+            
+            <h1>Hi, I am novaflare</h1>
             <h2>about novaflare</h2>
         </header>
         
         <div class="content">
             <p>
-                i am a <span class="highlight">high school student</span>, i love <span class="running">running long distances</span>, exploring new places.
+                I am a <span class="highlight">high school student</span>, I love <span class="running">running long distances</span> and exploring new places.
             </p>
             
             <p>
-                i also love <span class="graphics">graphics designing</span> but i am a <span class="highlight">lazy brat</span>... and somehow i love <span class="math">MATHSS</span>.
+                I also love <span class="graphics">graphics designing</span> but I am a <span class="highlight">lazy brat</span>... and somehow I love <span class="math">MATHSS</span>.
             </p>
             
             <p>
-                tbh I love <span class="electronics">building electronic components</span> and other stuffs XD.
+                Tbh I love <span class="electronics">building electronic components</span> and other stuffs XD.
             </p>
         </div>
         
         <div class="footer">
-            <p>© 2025 novaflare | Made with passion and a bit of laziness</p>
+            <p>© 2025 novaflare | made with my own hands of laziness | hire me</p>
         </div>
     </div>
 
