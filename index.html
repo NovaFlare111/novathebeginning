@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>novaflare - Portfolio</title>
     <style>
         * {
@@ -33,36 +33,8 @@
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.5);
         }
-        
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 248, 240, 0.7);
-            animation: float 15s infinite linear;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-1000px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-        
+
         header {
             text-align: center;
             margin-bottom: 2rem;
@@ -83,47 +55,32 @@
             font-size: clamp(2.5rem, 8vw, 4rem);
             background: linear-gradient(45deg, #d35400 0%, #e67e22 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             color: transparent;
-            margin-bottom: 1rem;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            letter-spacing: 1px;
             animation: glow 2s ease-in-out infinite alternate;
-            line-height: 1.2;
-            word-wrap: break-word;
         }
-        
+
         @keyframes glow {
-            from {
-                text-shadow: 0 0 10px rgba(211, 84, 0, 0.2);
-            }
-            to {
-                text-shadow: 0 0 20px rgba(230, 126, 34, 0.3);
-            }
+            from { text-shadow: 0 0 10px rgba(211, 84, 0, 0.2); }
+            to { text-shadow: 0 0 20px rgba(230, 126, 34, 0.3); }
         }
-        
+
         h2 {
             font-size: clamp(1.8rem, 6vw, 2.5rem);
             color: #8b4513;
             margin-bottom: 1.5rem;
             position: relative;
-            display: inline-block;
         }
         
         h2::after {
             content: '';
             position: absolute;
             bottom: -8px;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
             height: 3px;
             background: linear-gradient(90deg, #d35400 0%, #e67e22 100%);
             border-radius: 3px;
-        }
-        
-        .content {
-            line-height: 1.6;
-            font-size: 1.1rem;
         }
         
         p {
@@ -131,244 +88,77 @@
             padding: 1.2rem;
             background: rgba(255, 253, 250, 0.9);
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-left: 4px solid #e67e22;
+            transition: 0.3s ease;
         }
-        
+
         p:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.07);
         }
-        
-        .highlight {
-            background: linear-gradient(120deg, #f9e4c8 0%, #f5d7b4 100%);
-            padding: 0.2rem 0.5rem;
+
+        .highlight, .electronics, .running {
+            font-weight: bold;
+            padding: 0.2rem 0.4rem;
             border-radius: 5px;
-            font-weight: bold;
-            color: #8b4513;
         }
-        
-        .math {
-            color: #d35400;
-            font-weight: bold;
-            font-style: italic;
-        }
-        
-        .graphics {
-            color: #e67e22;
-            font-weight: bold;
-        }
-        
-        .electronics {
-            color: #a84300;
-            font-weight: bold;
-        }
-        
-        .running {
-            color: #8b4513;
-            font-weight: bold;
-        }
-        
+
+        .highlight   { background: #f5d7b4; }
+        .electronics { background: #ffd9b3; }
+        .running     { background: #f3c9a8; }
+
+        /* Footer */
         .footer {
             margin-top: 2rem;
             text-align: center;
             color: #8b7d6b;
-            font-size: 0.85rem;
-            line-height: 1.4;
+            font-size: 0.9rem;
         }
-        
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
+
+        .insta-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(120deg, #ff9a3c, #ff7a00);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 5px 12px rgba(255, 140, 60, 0.3);
+            transition: 0.3s;
+            font-weight: bold;
         }
-        
-        .floating-element {
-            position: absolute;
-            opacity: 0.1;
-            animation: float-element 20s infinite linear;
-        }
-        
-        @keyframes float-element {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            33% {
-                transform: translate(30px, -50px) rotate(120deg);
-            }
-            66% {
-                transform: translate(-20px, 20px) rotate(240deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(360deg);
-            }
-        }
-        
-        /* Mobile-specific adjustments */
-        @media (max-width: 768px) {
-            body {
-                padding: 0.5rem;
-            }
-            
-            .container {
-                padding: 1.5rem;
-                border-radius: 15px;
-            }
-            
-            header {
-                margin-bottom: 1.5rem;
-            }
-            
-            .profile-image {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 1rem;
-            }
-            
-            h1 {
-                font-size: clamp(2rem, 10vw, 3rem);
-                letter-spacing: 0.5px;
-            }
-            
-            h2 {
-                font-size: clamp(1.5rem, 7vw, 2rem);
-            }
-            
-            .content {
-                font-size: 1rem;
-            }
-            
-            p {
-                padding: 1rem;
-                margin-bottom: 1rem;
-            }
-            
-            .footer {
-                margin-top: 1.5rem;
-                font-size: 0.8rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
-                border-radius: 12px;
-            }
-            
-            .profile-image {
-                width: 100px;
-                height: 100px;
-            }
-            
-            h1 {
-                font-size: clamp(1.8rem, 12vw, 2.5rem);
-            }
-            
-            p {
-                padding: 0.8rem;
-            }
+
+        .insta-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(255, 140, 60, 0.4);
         }
     </style>
 </head>
+
 <body>
-    <div class="particles" id="particles"></div>
-    <div class="floating-elements" id="floating-elements"></div>
-    
+
     <div class="container">
         <header>
-            <!-- ADD YOUR PROFILE IMAGE URL HERE -->
-            <img src="indimg.png" alt="Profile Picture" class="profile-image">
-            
+            <img src="indimg.png" class="profile-image">
             <h1>Hi, I am novaflare</h1>
             <h2>about novaflare</h2>
         </header>
         
         <div class="content">
-            <p>
-                I am a <span class="highlight">high school student</span>, I love <span class="running">running long distances</span> and exploring new places.
-            </p>
-            
-            <p>
-                I also love <span class="electronics">building electronic components</span> and other stuffs XD.
-            </p>
+            <p>I am a <span class="highlight">high school student</span>, I love <span class="running">running long distances</span> and exploring new places.</p>
+            <p>I also love <span class="electronics">building electronic components</span> and other stuffs XD.</p>
         </div>
+
         <div class="footer">
-    <p>
-        © 2025 novaflare | made with my own hands of laziness | hire me | OVER HERE I WANT TO ADD 
-        <!-- Add your Instagram Link here -->
-        <a href="https://www.instagram.com/mridanshu.xyz/" target="_blank" rel="noopener noreferrer">
-            Instagram
-        </a>
-    </p>
-</div>
+            © 2025 novaflare  
+            <br>made with my own hands of laziness  
+            <br><br>
+            <!-- Insta link added cleanly -->
+            <a class="insta-link" href="https://www.instagram.com/mridanshu.xyz/" target="_blank">
+                Instagram ↗
+            </a>
+        </div>
     </div>
 
-    <script>
-        // Create floating particles
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 30;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            
-            const size = Math.random() * 20 + 5;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${Math.random() * 100}%`;
-            
-            particle.style.animationDelay = `${Math.random() * 15}s`;
-            
-            particlesContainer.appendChild(particle);
-        }
-        
-        // Create floating elements (shapes)
-        const floatingContainer = document.getElementById('floating-elements');
-        const elementCount = 8;
-        const shapes = ['◆', '●', '■', '▲', '★', '♠', '♥', '♦'];
-        
-        for (let i = 0; i < elementCount; i++) {
-            const element = document.createElement('div');
-            element.classList.add('floating-element');
-            
-            element.textContent = shapes[i];
-            element.style.fontSize = `${Math.random() * 40 + 20}px`;
-            
-            element.style.left = `${Math.random() * 100}%`;
-            element.style.top = `${Math.random() * 100}%`;
-            
-            element.style.color = `hsl(${Math.random() * 30 + 20}, 70%, 40%)`;
-            element.style.animationDelay = `${Math.random() * 20}s`;
-            element.style.animationDuration = `${Math.random() * 10 + 15}s`;
-            
-            floatingContainer.appendChild(element);
-        }
-        
-        // Add typing effect to the name
-        const nameElement = document.querySelector('h1');
-        const originalText = nameElement.textContent;
-        nameElement.textContent = '';
-        
-        let i = 0;
-        function typeWriter() {
-            if (i < originalText.length) {
-                nameElement.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 150);
-            }
-        }
-        
-        // Start typing effect after a short delay
-        setTimeout(typeWriter, 500);
-    </script>
 </body>
-
 </html>
-
